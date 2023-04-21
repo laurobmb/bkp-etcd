@@ -1,0 +1,19 @@
+---
+apiVersion: project.openshift.io/v1
+kind: Project
+metadata:
+  name: openshift-etcd-backup
+  labels:
+    app: openshift-backup
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/audit-version: v1.24
+    pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/warn-version: v1.24
+  annotations:
+    openshift.io/node-selector: ''
+    pod-security.kubernetes.io/enforce: privileged
+    openshift.io/description: "Openshift Backup Automation Tool"
+    openshift.io/display-name: "Backup ETCD Automation"
+spec:
+  finalizers:
+    - kubernetes
